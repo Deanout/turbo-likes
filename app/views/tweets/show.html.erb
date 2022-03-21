@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+<% if current_user %>
+  <%= render "tweets/private_tweet", 
+  tweet: @tweet, 
+  like_status: current_user.liked?(@tweet) %>
+<% else %>
+  <%= render "tweets/public_tweet", tweet: @tweet %>
+<% end %>
+<div>
+  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
+  <%= link_to "Back to tweets", tweets_path %>
+  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
+</div>

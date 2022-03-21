@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "#{dom_id(tweet)} private_likes" do %>
+  <% like_text = like_status ? "Unlike" : "Like" %>
+  <%= link_to like_text, like_tweet_path(id: tweet.id), data: {turbo_method: "post"} %>
+  <%= render 'likes/like_count', tweet: tweet %>
+<% end %>
